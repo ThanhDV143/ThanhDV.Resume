@@ -1,43 +1,43 @@
 const cvData = {
     system: {
-        savePdf: "Lưu PDF",
+        savePdf: "Save PDF",
         portfolio: "Portfolio",
-        seeMore: "Xem chi tiết",
-        moreProjects: "Xem thêm các dự án khác...",
-        description: "Mô tả",
-        technicalDetails: "Chi tiết kỹ thuật",
-        technologies: "Công nghệ",
-        myCv: "Xem CV"
+        seeMore: "Detail",
+        moreProjects: "See more projects...",
+        description: "Description",
+        technicalDetails: "Technical Details",
+        technologies: "Technologies",
+        myCv: "My CV"
     },
-    fullName: "Đặng Văn Thanh",
+    fullName: "Dang Van Thanh",
     jobTitle: "Unity Game Programmer",
     portfolioInfo: {
-        title: "Danh mục dự án",
-        subTitle: "Tổng hợp các sản phẩm và dự án nghiên cứu kỹ thuật cá nhân trong quá trình học tập và làm việc.",
-        footerText: "© 2026 Đặng Văn Thanh",
+        title: "Project Portfolio",
+        subTitle: "A collection of commercial games and personal technical research projects developed throughout my career.",
+        footerText: "© 2026 Dang Van Thanh",
         personalSectionTitle: "Technical R&D"
     },
-    about: "Mình là Game Developer với <b>4+ năm kinh nghiệm</b> làm việc với <b>Unity</b> và <b>C#</b>. Có kiến thức về OOP, ECS, Design Pattern, System Design... Đã tham gia phát triển đa dạng thể loại từ hyper-casual đến hybrid-casual. Có khả năng làm việc độc lập và phối hợp nhóm hiệu quả. <br><br>Ngoài ra, mình còn tự xây dựng hệ thống HomeLab Proxmox và quy trình <b>CI/CD</b> với <b>Jenkins</b> để quản lý package.<br><br>Hiện tại mình mong muốn được tham gia các dự án game chất lượng cao và phát triển sâu hơn về kỹ thuật <b>Technical Art, Software Architecture</b> và <b>Performance Optimization</b>.",
+    about: "I am a Game Developer with <b>4+ years of experience</b> working with <b>Unity</b> and <b>C#</b>. Knowledgeable in OOP, ECS, Design Patterns, System Design... I have participated in developing various game genres from hyper-casual to hybrid-casual. Capable of working independently and collaborating effectively in teams. <br><br>Additionally, I built a HomeLab Proxmox system and <b>CI/CD</b> pipeline with <b>Jenkins</b> to manage packages.<br><br>Currently, I am looking to join high-quality game projects and further develop my skills in <b>Technical Art, Software Architecture</b>, and <b>Performance Optimization</b>.",
     sectionTitles: {
-        about: "Giới thiệu",
-        workExperience: "Kinh nghiệm làm việc",
+        about: "About",
+        workExperience: "Work Experience",
         personalProjects: "Technical R&D",
-        contact: "Liên hệ",
-        education: "Học vấn",
-        skills: "Kỹ năng"
+        contact: "Contact",
+        education: "Education",
+        skills: "Skills"
     },
     contact: {
         phone: "0358040000",
         email: "vanthanh1998@gmail.com",
-        address: "Trung Văn, Nam Từ Liêm, Hà Nội",
+        address: "Trung Van, Nam Tu Liem, Hanoi",
         website: "https://knowledge.thanhdv.com",
         websiteDisplay: "knowledge.thanhdv.com",
         github: "https://github.com/ThanhDang143",
         githubDisplay: "github.com/ThanhDang143"
     },
     education: {
-        school: "Đại học Mỏ - Địa chất Hà Nội",
-        major: "Khoa IT - Chuyên ngành Khoa học Máy tính",
+        school: "Hanoi University of Mining and Geology",
+        major: "IT Faculty - Computer Science",
         period: "09/2016 - 09/2022"
     },
     workExperience: [
@@ -46,7 +46,7 @@ const cvData = {
             theme: "#e4343b",
             period: "03/2025 - 02/2026",
             title: "GAME DEVELOPER",
-            description: ["Tham gia chương trình CrazyHubs do CrazyLabs tổ chức nhằm chuẩn hóa quy trình sản xuất game Hyper-casual theo tiêu chuẩn quốc tế."],
+            description: ["Participated in the CrazyHubs program organized by CrazyLabs to standardize hyper-casual game production processes according to international standards."],
             maxProjects: 2,
             moreProjectsLink: "portfolio.html#Ohze",
             details: [
@@ -54,15 +54,15 @@ const cvData = {
                     icon: "Icon/train_loop.webp",
                     name: "Train Loop: TD",
                     genre: "Tower Defense / Strategy",
-                    description: "Kết hợp cơ chế Tower Defense và Strategy, tập trung vào System Design và Optimize Performance.",
+                    description: "Combined Tower Defense and Strategy mechanics, focusing on System Design and Performance Optimization.",
                     tags: ["Unity", "C#", "Solo", "Pragmatic Architecture"],
                     link: "https://www.taptap.io/app/33874766",
                     linkText: "TapTap",
                     backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/TrainLoop_TD.apk",
                     backupLinkText: "APK", 
                     points: [
-                        "Chủ động loại bỏ các pattern phức tạp (như DI Framework) để tránh over-engineering.",
-                        "Triển khai Spatial Partitioning (Grid-based) để tối ưu hiệu năng."
+                        "Proactively eliminated complex patterns (like DI Framework) to avoid over-engineering.",
+                        "Implemented Spatial Partitioning (Grid-based) to optimize performance."
                     ],
                     videos: [],
                     images: [
@@ -76,15 +76,15 @@ const cvData = {
                     icon: "Icon/heroes.webp",
                     name: "Super Hero Defense",
                     genre: "Tower Defense / Roguelike",
-                    description: "Kết hợp cơ chế Tower Defense và Roguelike. Ưu tiên code có cấu trúc rõ ràng, dễ mở rộng.",
+                    description: "Combined Tower Defense and Roguelike mechanics. Prioritized clear, easily extensible code structure.",
                     tags: ["Unity", "C#", "Teamwork", "Dependency Injection", "Strategy", "Factory"],
                     link: "https://www.taptap.io/app/33910058",
                     linkText: "TapTap",
                     backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/SuperHeroDefense.apk",
                     backupLinkText: "APK",
                     points: [
-                        "Xây dựng core gameplay đảm bảo tính mở rộng để có thể dễ dàng teamwork trong quá trình làm việc.",
-                        "Học hỏi và áp dụng các design pattern như Dependency Injection, Strategy, Factory để tối ưu cấu trúc code.",
+                        "Built core gameplay with extensibility to facilitate teamwork during development.",
+                        "Learned and applied design patterns such as Dependency Injection, Strategy, Factory to optimize code structure.",
                     ],
                     videos: [],
                     images: [
@@ -99,13 +99,13 @@ const cvData = {
                     icon: "Icon/smash_face.png",
                     name: "Smash Your Face",
                     genre: "Party / Action",
-                    description: "Hoàn thiện prototype trong 48h (OHZE Jam), tích hợp diện khuôn mặt.",
+                    description: "Completed prototype in 48h (OHZE Jam), integrated face recognition.",
                     tags: ["Unity", "C#", "MediaPipe", "JAM"],
                     backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/SmashYourFace.rar",
                     backupLinkText: "Download",
                     points: [
-                        "Tích hợp MediaPipe Plugin vào game để nhận diện khuôn mặt.",
-                        "Làm việc với team 6 (3 programmer) người trong thời gian ngắn.",
+                        "Integrated MediaPipe Plugin into the game for face recognition.",
+                        "Worked with a team of 6 (3 programmers) in a short time frame.",
                     ],
                     videos: ["https://youtu.be/A1SdOcHdQ3Y"],
                     images: [
@@ -119,15 +119,15 @@ const cvData = {
                     icon: "Icon/block_crusher.webp",
                     name: "Blocks Crusher",
                     genre: "Puzzle / Casual",
-                    description: "Thực hành quy trình Rapid Prototyping: từ ý tưởng đến sản phẩm hoàn chỉnh trong 3 tuần.",
+                    description: "Practiced Rapid Prototyping workflow: from concept to finished product in 3 weeks.",
                     tags: ["Unity", "C#", "CrazyHubs", "Rapid Prototyping"],
                     link: "https://www.taptap.io/app/33891864",
                     linkText: "TapTap",
                     backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/BlockCrusher.apk",
                     backupLinkText: "APK",
                     points: [
-                        "Phát triển game từ giai đoạn ý tưởng đến sản phẩm hoàn chỉnh trong vòng 3 tuần theo quy trình CrazyHubs.",
-                        "Rèn luyện kỹ năng phát triển nhanh (Rapid Prototyping) và tư duy làm sản phẩm theo tiêu chuẩn chất lượng của CrazyLabs.",
+                        "Developed game from concept to finished product within 3 weeks following the CrazyHubs process.",
+                        "Practiced rapid prototyping skills and product thinking according to CrazyLabs quality standards.",
                     ],
                     videos: [],
                     images: [
@@ -142,15 +142,15 @@ const cvData = {
                     icon: "Icon/arrow.webp",
                     name: "Arrow Break Out",
                     genre: "Puzzle / Casual",
-                    description: "Tối ưu trải nghiệm sản phẩm theo tiêu chuẩn chất lượng CrazyLabs.",
+                    description: "Optimized product experience according to CrazyLabs quality standards.",
                     tags: ["Unity", "C#", "CrazyHubs", "Rapid Prototyping"],
                     link: "https://www.taptap.io/app/33914917",
                     linkText: "TapTap",
                     backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/ArrowBreakOut.apk",
                     backupLinkText: "APK",
                     points: [
-                        "Phát triển game từ giai đoạn ý tưởng đến sản phẩm hoàn chỉnh trong vòng 3 tuần theo quy trình CrazyHubs.",
-                        "Rèn luyện kỹ năng phát triển nhanh (Rapid Prototyping) và tư duy làm sản phẩm theo tiêu chuẩn chất lượng của CrazyLabs.",
+                        "Developed game from concept to finished product within 3 weeks following the CrazyHubs process.",
+                        "Practiced rapid prototyping skills and product thinking according to CrazyLabs quality standards.",
                     ],
                     videos: [],
                     images: [
@@ -168,7 +168,7 @@ const cvData = {
             theme: "#f15a29",
             period: "12/2022 - 03/2024",
             title: "GAME DEVELOPER",
-            description: ["Phát triển dự án game hybrid-casual theo quy trình Agile Scrum.", "Tham gia thiết kế và xây dựng các hệ thống trong game."],
+            description: ["Developed hybrid-casual game projects following Agile Scrum methodology.", "Participated in designing and building game systems."],
             maxProjects: 1,
             moreProjectsLink: "portfolio.html#Bravestars",
             details: [
@@ -176,15 +176,15 @@ const cvData = {
                     icon: "Icon/candy_battle.webp",
                     name: "Candy Battle",
                     genre: "Adventure / Action",
-                    description: "Xây dựng hệ thống combat cường độ cao (Survivor-like), tối ưu hiệu năng cho số lượng lớn entity.",
+                    description: "Built high-intensity combat system (Survivor-like), optimized performance for large number of entities.",
                     tags: ["Unity", "C#", "ECS (Entitas)", "Optimization"],
                     link: "https://www.taptap.io/app/320447",
                     linkText: "TapTap",
                     backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/CandyBattle.apk",
                     backupLinkText: "APK",
                     points: [
-                        "Phát triển hệ thống combat bao gồm: Vũ khí, Skill, AI Enemy, Inventory...",
-                        "Ứng dụng ECS (Entitas) để tối ưu hiệu năng game."
+                        "Developed combat system including: Weapons, Skills, AI Enemy, Inventory...",
+                        "Applied ECS (Entitas) to optimize game performance."
                     ],
                     videos: [],
                     images: [
@@ -200,15 +200,15 @@ const cvData = {
                     icon: "Icon/cat_tycoon.webp",
                     name: "Cat Restaurant Tycoon",
                     genre: "Simulation / Management",
-                    description: "Game quản lý nhà hàng cho iOS. Học hỏi và ứng dụng tích hợp API phía client.",
+                    description: "Restaurant management game for iOS. Learned and applied client-side API integration.",
                     tags: ["Unity", "C#", "iOS", "API Integration"],
                     link: "https://www.taptap.io/app/33656534",
                     linkText: "TapTap",
                     backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/CatRestaurantTycoon.apk",
                     backupLinkText: "APK",
                     points: [
-                        "Phát triển tính năng Inventory, Daily Check-in.",
-                        "Xử lý tích hợp API (Client-side): Thực hiện gọi API, xử lý dữ liệu trả về để đồng bộ với Server."
+                        "Developed Inventory and Daily Check-in features.",
+                        "Handled client-side API integration: Making API calls and processing responses to sync with Server."
                     ],
                     videos: [],
                     images: [
@@ -227,9 +227,9 @@ const cvData = {
             period: "03/2021 - 12/2022",
             title: "GAME DEVELOPER",
             description: [
-                "Phát triển, bảo trì các dự án game hyper-casual.",
-                "Tích hợp quảng cáo, tracking cho game.",
-                "Theo dõi tiến độ các thành viên trong team dev."
+                "Developed and maintained hyper-casual game projects.",
+                "Integrated advertising and tracking for games.",
+                "Monitored progress of development team members."
             ],
             maxProjects: 0,
             moreProjectsLink: "portfolio.html#Omegame",
@@ -238,7 +238,7 @@ const cvData = {
                     icon: "Icon/metamon.webp",
                     name: "Metamon",
                     genre: "Casual",
-                    description: "Triển khai gameplay bắt và huấn luyện quái vật, lấy cảm hứng từ Pokemon.",
+                    description: "Implemented gameplay for catching and training monsters, inspired by Pokemon.",
                     tags: ["Unity", "C#"],
                     link: "https://apkpure.com/vn/metamon/com.metamon.pkm.zoo.monster",
                     linkText: "APKPure",
@@ -258,13 +258,13 @@ const cvData = {
                     icon: "Icon/fall_party.webp",
                     name: "Fall Party",
                     genre: "Casual",
-                    description: "Huấn luyện AI Bot bằng MLAgent, mô phỏng vật lý va chạm 3D vui nhộn.",
+                    description: "Trained AI Bot using MLAgent, simulated fun 3D physics collisions.",
                     tags: ["Unity", "C#"],
                     link: "https://apkpure.com/vn/fall-party/com.fall.party.guys.fallguyparty.gameparty",
                     linkText: "APKPure",
                     backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/FallParty.apk",
                     backupLinkText: "APK",
-                    points: ["Sử dụng MLAgent để huấn luyện AI cho bot trong game."],
+                    points: ["Used MLAgent to train AI for game bots."],
                     videos: [],
                     images: [
                         "Images/Fall/fall1.webp",
@@ -281,13 +281,13 @@ const cvData = {
                     icon: "Icon/hook.webp",
                     name: "Hook Guys Party",
                     genre: "Casual",
-                    description: "Tập trung tối ưu hóa ánh sáng (Lighting) và hiệu ứng môi trường trong game.",
+                    description: "Focused on optimizing Lighting and environmental effects in the game.",
                     tags: ["Unity", "C#"],
                     link: "https://apkpure.com/vn/hook-guys-party/com.hook.guys.party.wuggyparty.hypercasual",
                     linkText: "APKPure",
                     backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/Hook.apk",
                     backupLinkText: "APK",
-                    points: ["Bước đầu tìm hiểu về tối ưu Lighting."],
+                    points: ["Initial exploration of Lighting optimization."],
                     videos: [],
                     images: [
                         "Images/Hook/hook1.webp",
@@ -301,13 +301,13 @@ const cvData = {
                     icon: "Icon/beach.webp",
                     name: "Beach Defence BH",
                     genre: "Arcade",
-                    description: "Nghiên cứu cơ chế AI và điều khiển cho game bắn súng góc nhìn thứ nhất.",
+                    description: "Researched AI mechanics and controls for first-person shooter games.",
                     tags: ["Unity", "C#"],
                     link: "https://apkpure.com/vn/beach-defence-bh/com.beachhead.beach.defence.defense",
                     linkText: "APKPure",
                     backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/BeachDefence.apk",
                     backupLinkText: "APK",
-                    points: ["Tìm hiểu về game 3D và AI trong game."],
+                    points: ["Explored 3D game development and AI."],
                     videos: [],
                     images: [
                         "Images/Beach/beach1.webp",
@@ -326,17 +326,17 @@ const cvData = {
         projects: [
             {
                 name: "HomeLab Proxmox",
-                period: "2025 - nay",
+                period: "2025 - present",
                 genre: "DevOps / System Admin",
-                description: "Hệ thống Home Server Self-hosted phục vụ nhu cầu lưu trữ, quản lý và học tập của cá nhân.",
+                description: "Self-hosted Home Server system for personal storage, management, and learning needs.",
                 tags: ["Proxmox", "Jenkins", "Verdaccio", "Docker", "Cloudflared"],
                 icon: "server",
                 link: "https://knowledge.thanhdv.com",
                 linkText: "Tech Blog",
                 points: [
-                    "Thiết lập Proxmox Virtual Environment để ảo hóa và quản lý các dịch vụ hạ tầng (NAS XPEnology, Web Server).",
-                    "Thiết lập cấu hình mạng để có thể truy cập server từ internet với Cloudflare Tunnel.",
-                    "Xây dựng quy trình CI/CD với Jenkins: Tự động hóa việc publish các Unity Package lên Verdaccio.",
+                    "Set up Proxmox Virtual Environment to virtualize and manage infrastructure services (XPEnology NAS, Web Server).",
+                    "Configured network to access server from the internet using Cloudflare Tunnel.",
+                    "Built CI/CD pipeline with Jenkins: Automated publishing of Unity Packages to Verdaccio.",
                 ],
                 videos: [],
                 images: [
@@ -351,14 +351,14 @@ const cvData = {
                 name: "AudioManager.FMOD",
                 period: "2025",
                 genre: "Tooling / Audio Middleware",
-                description: "Thư viện Wrapper cho FMOD trong Unity, giúp chuẩn hóa và tăng tốc quy trình tích hợp âm thanh.",
+                description: "Wrapper library for FMOD in Unity, helping to standardize and accelerate audio integration workflow.",
                 tags: ["Unity", "FMOD", "Tooling","Audio"],
                 icon: "music",
                 link: "https://github.com/ThanhDang143/ThanhDV.AudioManager.FMOD.git",
                 linkText: "GitHub",
                 points: [
-                    "Cung cấp các API high-level dễ sử dụng, giảm thiểu code lặp lại khi tích hợp âm thanh.",
-                    "Cung cấp công cụ quản lý trực quan trong Unity Editor, tự động tạo code tiết kiện thời gian khi triển khai."
+                    "Provides easy-to-use high-level APIs, minimizing repetitive code when integrating audio.",
+                    "Provides visual management tools in Unity Editor, automatically generates code to save time during implementation."
                 ],
                 videos: [],
                 images: [
@@ -371,13 +371,13 @@ const cvData = {
                 name: "GameSaver",
                 period: "2025",
                 genre: "Tooling / Save System",
-                description: "Giải pháp quản lý dữ liệu local đơn giản, an toàn và trực quan dành cho Unity Developer.",
+                description: "Simple, secure, and visual local data management solution for Unity Developers.",
                 tags: ["Unity", "JSON", "AES Encryption", "Open Source"],
                 link: "https://github.com/ThanhDang143/ThanhDV.GameSaver.git",
                 linkText: "GitHub",
                 points: [
-                    "Hỗ trợ Serialization dữ liệu ra file JSON, tích hợp sẵn thuật toán mã hóa AES để bảo mật thông tin người chơi.",
-                    "Cung cấp công cụ quản lý trực quan cho phép xem, sửa và xóa file save ngay trong Unity Editor."
+                    "Supports data serialization to JSON files, integrates AES encryption algorithm to secure player information.",
+                    "Provides visual management tools to view, edit, and delete save files directly in Unity Editor."
                 ],
                 videos: [],
                 images: [
@@ -388,14 +388,14 @@ const cvData = {
                 name: "ESP32 - The Cube (WIP)",
                 period: "2025",
                 genre: "Hardware / Embedded",
-                description: "Dự án nghiên cứu cá nhân về Robotics và giao tiếp phần cứng (Hardware Interface).",
+                description: "Personal research project on Robotics and Hardware Interface.",
                 tags: ["WIP", "ESP32", "C++", "Robotics"],
                 icon: "cpu",
                 link: "https://knowledge.thanhdv.com/books/esp32-the-cube",
                 linkText: "Devlog",
                 points: [
-                    "Phát triển Robot sử dụng vi điều khiển ESP32, thực hiện lắp ráp và giao tiếp phần cứng.",
-                    "Hướng tới ứng dụng State Machine, Behaviour Tree cho hành vi tự động của robot."
+                    "Developing a robot using ESP32 microcontroller, performing assembly and hardware interfacing.",
+                    "Aiming to apply State Machine and Behaviour Tree for robot's autonomous behavior."
                 ],
                 videos: [],
                 images: [
@@ -408,14 +408,14 @@ const cvData = {
                 name: "ACADEMIC ARCHIVE",
                 period: "2020 - 2022",
                 genre: "Research / Legacy Projects",
-                description: "Các dự án nghiên cứu nền tảng kỹ thuật thời sinh viên, bao gồm Multiplayer và C++ Unreal Engine 4.",
+                description: "Technical foundation research projects from student days, including Multiplayer and C++ Unreal Engine 4.",
                 tags: ["Legacy", "C++", "Photon", "Multiplayer", "Unreal Engine 4"],
                 icon: "archive",
                 link: "",
                 linkText: "",
                 points: [
-                    "Alpha (FPS Multiplayer): Nghiên cứu cách phát triển một game multiplayer cơ bản với Photon.",
-                    "Tank (Unreal Engine 4): Tìm hiểu và trải nghiệm Unreal Engine 4."
+                    "Alpha (FPS Multiplayer): Researched how to develop a basic multiplayer game with Photon.",
+                    "Tank (Unreal Engine 4): Explored and experienced Unreal Engine 4."
                 ],
                 videos: [
                     "https://www.youtube.com/watch?v=YG0PBS1dHss",
@@ -429,7 +429,7 @@ const cvData = {
     },
     skills: [
         {
-            category: "Ngôn ngữ lập trình & Game Engine",
+            category: "Programming Languages & Game Engine",
             items: ["C#", "Unity"]
         },
         {
@@ -437,7 +437,7 @@ const cvData = {
             items: ["FMOD", "Addressables", "UniTask", "Odin Inspector", "..."]
         },
         {
-            category: "Công cụ khác",
+            category: "Other Tools",
             items: ["Git", "Photoshop", "Figma", "ClickUp", "Jenkins (CI/CD)", "..."]
         }
     ]

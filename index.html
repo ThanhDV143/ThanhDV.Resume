@@ -8,9 +8,9 @@
     <link rel="icon" href="ava.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="antialiased text-slate-800">
@@ -22,105 +22,118 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
         </svg>
-        Save PDF
+        <span id="txt-save-pdf">Save PDF</span>
     </button>
     <button onclick="window.open('portfolio.html', '_blank')" class="action-btn" type="button">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M3 7a2 2 0 012-2h4l2 2h6a2 2 0 012 2v7a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/>
         </svg>
-        Portfolio
+        <span id="txt-portfolio">Portfolio</span>
+    </button>
+    <button onclick="toggleLanguage()" class="action-btn" type="button" id="lang-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+        </svg>
+        <span id="lang-text">EN</span>
     </button>
 </div>
 
-<!-- Main CV Content -->
 <div id="cv-content" class="cv-container mx-auto bg-white shadow-sm my-8 min-h-screen">
 
-    <!-- HEADER -->
     <header class="p-8 sm:px-12 pt-12 pb-8 border-b border-slate-100 mb-8">
         <h1 id="fullName" class="text-5xl font-medium text-slate-900 tracking-tight leading-tight mb-2"></h1>
         <p id="jobTitle" class="text-sm font-medium text-sky-700 uppercase tracking-widest"></p>
     </header>
 
-    <!-- WRAPPER -->
     <div class="flex flex-col md:flex-row px-8 sm:px-12 pb-12 gap-10">
 
-        <!-- LEFT COLUMN (Main: 66%) -->
         <main class="w-full md:w-2/3">
-            <!-- Mobile Contact -->
             <section class="mb-8 md:hidden mobile-order-1">
                 <h2 class="section-title" id="title-contact-mobile"></h2>
                 <ul class="space-y-2 text-sm text-slate-600" id="contact-container-mobile"></ul>
             </section>
 
-            <!-- About -->
             <section class="mb-8 mobile-order-2 section-container">
                 <h2 class="section-title" id="title-about"></h2>
                 <p id="about" class="text-slate-600 text-sm leading-relaxed text-left"></p>
             </section>
 
-            <!-- Work Experience -->
             <section class="mb-8 mobile-order-4 section-container">
                 <h2 class="section-title" id="title-experience"></h2>
                 <div class="space-y-6" id="work-experience-container"></div>
             </section>
 
-            <!-- Projects -->
             <section class="mobile-order-5 section-container">
                 <h2 class="section-title" id="title-projects"></h2>
                 <div class="space-y-5" id="projects-container"></div>
             </section>
         </main>
 
-        <!-- RIGHT COLUMN (Sidebar: 34%) -->
         <aside class="w-full md:w-1/3">
-            <!-- Desktop Contact -->
             <section class="mb-8 hidden md:block section-container">
                 <h2 class="section-title" id="title-contact"></h2>
                 <ul class="space-y-3 text-sm text-slate-600" id="contact-container"></ul>
             </section>
 
-            <!-- Education -->
             <section class="mb-8 mobile-order-6 md:order-none section-container">
                 <h2 class="section-title" id="title-education"></h2>
                 <div id="education-container"></div>
             </section>
 
-            <!-- Skills -->
             <section class="mb-8 mobile-order-3 md:order-none section-container">
                 <h2 class="section-title" id="title-skills"></h2>
                 <div id="skills-container" class="space-y-4"></div>
             </section>
 
-            <!-- Mobile Skills -->
             <div id="skills-container-mobile" class="md:hidden space-y-4"></div>
         </aside>
     </div>
 </div>
 
-<script src="data.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Helper 1: Gán Text an toàn (Đã có)
+    const LANG_KEY = 'cv-lang';
+    const currentLang = localStorage.getItem(LANG_KEY) || 'vi';
+    
+    function toggleLanguage() {
+        const newLang = currentLang === 'vi' ? 'en' : 'vi';
+        localStorage.setItem(LANG_KEY, newLang);
+        location.reload();
+    }
+    
+    const script = document.createElement('script');
+    script.src = currentLang === 'en' ? 'data.en.js' : 'data.js';
+    document.head.appendChild(script);
+    
+    script.onload = () => {
+        const langBtn = document.getElementById('lang-text');
+        if (langBtn) langBtn.textContent = currentLang === 'vi' ? 'EN' : 'VI';
+        
+        document.dispatchEvent(new Event('CVDataLoaded'));
+    };
+</script>
+<script>
+    function initCV() {
+        if (typeof cvData === 'undefined') return;
+
         const setText = (id, text) => {
             const el = document.getElementById(id);
             if (el) el.textContent = text;
         };
 
-        // Helper 2: Gán HTML an toàn (MỚI THÊM)
-        // Hàm này sẽ kiểm tra xem id có tồn tại không rồi mới gán innerHTML
         const setHtml = (id, html) => {
             const el = document.getElementById(id);
             if (el) el.innerHTML = html;
         };
 
-        // Helper 3: Tạo HTML Link
         const generateLinkHtml = (link, text) => {
             if (!link) return '';
+            const seeMoreText = cvData.system ? cvData.system.seeMore : 'Xem chi tiết';
             return `
                 <li class="mt-0.5 no-bullet">
                     <a href="${link}" target="_blank" class="text-sky-700 hover:underline font-semibold inline-flex items-center gap-1">
-                        ${text || 'Xem chi tiết'}
+                        ${text || seeMoreText}
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
@@ -129,9 +142,6 @@
             `;
         };
 
-        // --- BẮT ĐẦU GÁN DỮ LIỆU ---
-
-        // 1. Set Headers
         setText('title-about', cvData.sectionTitles.about);
         setText('title-experience', cvData.sectionTitles.workExperience);
         setText('title-projects', cvData.sectionTitles.personalProjects);
@@ -140,15 +150,15 @@
         setText('title-education', cvData.sectionTitles.education);
         setText('title-skills', cvData.sectionTitles.skills);
         setText('title-skills-mobile', cvData.sectionTitles.skills);
+        
+        setText('txt-save-pdf', cvData.system.savePdf);
+        setText('txt-portfolio', cvData.system.portfolio);
 
-        // 2. Basic Info
         setText('fullName', cvData.fullName);
         setText('jobTitle', cvData.jobTitle);
         
-        // SỬA LỖI Ở ĐÂY: Dùng setHtml thay vì gọi trực tiếp .innerHTML
         setHtml('about', cvData.about);
 
-        // 3. Icons & Contact
         const icons = {
             phone: `<svg class="w-4 h-4 text-sky-700 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>`,
             email: `<svg class="w-4 h-4 text-sky-700 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
@@ -165,11 +175,9 @@
             <li class="flex items-start gap-2"><span class="mt-0.5">${icons.location}</span> <span>${cvData.contact.address}</span></li>
         `;
 
-        // SỬA LỖI Ở ĐÂY: Dùng setHtml
         setHtml('contact-container', contactHTML);
         setHtml('contact-container-mobile', contactHTML);
 
-        // 4. Education
         const eduHTML = `
             <div>
                 <h3 class="font-bold text-slate-900 text-sm mb-1">${cvData.education.school}</h3>
@@ -177,10 +185,9 @@
                 <span class="text-xs text-slate-400 font-medium">${cvData.education.period}</span>
             </div>
         `;
-        // SỬA LỖI Ở ĐÂY: Dùng setHtml
+
         setHtml('education-container', eduHTML);
 
-        // 5. Work Experience
         const workContainer = document.getElementById('work-experience-container');
         if (workContainer && cvData.workExperience) {
             cvData.workExperience.forEach(work => {
@@ -222,7 +229,7 @@
                         mainContentHtml += `
                             <div class="mt-2 pl-4 text-xs">
                                 <a href="${targetLink}" target="_blank" class="text-sky-600 hover:underline italic flex items-center gap-1">
-                                    + Xem thêm các dự án khác...
+                                    + ${cvData.system.moreProjects}
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                                 </a>
                             </div>
@@ -243,10 +250,8 @@
             });
         }
 
-        // 6. Projects (CV Version)
         const projectsContainer = document.getElementById('projects-container');
         if (projectsContainer && cvData.personalProjects && cvData.personalProjects.projects) {
-            // ... (Logic cũ của bạn, phần này OK vì đã có kiểm tra if projectsContainer)
             const personalLimit = (cvData.personalProjects.maxProjects !== undefined) ? cvData.personalProjects.maxProjects : 3;
             const visiblePersonalProjects = cvData.personalProjects.projects.slice(0, personalLimit);
 
@@ -276,7 +281,7 @@
                 projectsContainer.innerHTML += `
                     <div class="mt-2 pl-4 text-xs">
                         <a href="${targetLink}" target="_blank" class="text-sky-600 hover:underline italic flex items-center gap-1">
-                            + Xem thêm các dự án khác...
+                            + ${cvData.system.moreProjects}
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                         </a>
                     </div>
@@ -284,10 +289,9 @@
             }
         }
 
-        // 7. Skills
         const renderSkills = (containerId) => {
             const container = document.getElementById(containerId);
-            if (!container) return; // Đã an toàn
+            if (!container) return;
             cvData.skills.forEach((group, index) => {
                 const colorClasses = index === 0
                     ? 'bg-sky-100 text-sky-800'
@@ -338,7 +342,10 @@
                 document.head.appendChild(style);
             }
         }
-    });
+    }
+    
+    document.addEventListener('DOMContentLoaded', initCV);
+    document.addEventListener('CVDataLoaded', initCV);
 </script>
 </body>
 </html>

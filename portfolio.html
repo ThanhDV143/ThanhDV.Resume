@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
         body {
@@ -57,8 +58,16 @@
                         <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0"></path>
                     </svg>
                 </span>
-                <span>My CV</span>
+                <span id="txt-my-cv">My CV</span>
             </a>
+            <button onclick="toggleLanguage()" class="header-link font-bold inline-flex flex-row items-center gap-2 whitespace-nowrap text-sm text-slate-500 hover:text-sky-700 transition tracking-widest uppercase" title="Change Language">
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+                    </svg>
+                </span>
+                <span id="lang-text">EN</span>
+            </button>
         </div>
     </div>
 </nav>
@@ -130,16 +139,16 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="md:col-span-2 space-y-6">
                             <div>
-                                <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-2 flex items-center gap-2"><i data-lucide="info" class="w-4 h-4 text-sky-600"></i> Mô tả</h3>
+                                <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-2 flex items-center gap-2"><i data-lucide="info" class="w-4 h-4 text-sky-600"></i> <span id="txt-modal-desc-heading">Mô tả</span></h3>
                                 <p id="modal-desc" class="text-slate-600 text-sm leading-relaxed"></p>
                             </div>
                             <div>
-                                <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-2 flex items-center gap-2"><i data-lucide="cpu" class="w-4 h-4 text-sky-600"></i> Chi tiết kỹ thuật</h3>
+                                <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-2 flex items-center gap-2"><i data-lucide="cpu" class="w-4 h-4 text-sky-600"></i> <span id="txt-modal-tech-details-heading">Chi tiết kỹ thuật</span></h3>
                                 <ul id="modal-points" class="list-disc ml-5 space-y-2 text-slate-600 leading-relaxed text-sm"></ul>
                             </div>
                         </div>
                         <div class="space-y-4">
-                            <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-2 flex items-center gap-2"><i data-lucide="code-2" class="w-4 h-4 text-sky-600"></i> Công nghệ</h3>
+                            <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wide mb-2 flex items-center gap-2"><i data-lucide="code-2" class="w-4 h-4 text-sky-600"></i> <span id="txt-modal-tech-heading">Công nghệ</span></h3>
                             <div id="modal-tags" class="flex flex-wrap gap-2"></div>
                         </div>
                     </div>
@@ -149,13 +158,33 @@
     </div>
 </div>
 
-<script src="data.js"></script>
-
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    const LANG_KEY = 'cv-lang';
+    const currentLang = localStorage.getItem(LANG_KEY) || 'vi';
+    
+    function toggleLanguage() {
+        const newLang = currentLang === 'vi' ? 'en' : 'vi';
+        localStorage.setItem(LANG_KEY, newLang);
+        location.reload();
+    }
+    
+    const script = document.createElement('script');
+    script.src = currentLang === 'en' ? 'data.en.js' : 'data.js';
+    document.head.appendChild(script);
+    
+    script.onload = () => {
+        const langBtn = document.getElementById('lang-text');
+        if (langBtn) langBtn.textContent = currentLang === 'vi' ? 'EN' : 'VI';
+        
+        document.dispatchEvent(new Event('CVDataLoaded'));
+    };
+</script>
+<script>
+    function initPortfolio() {
+        if (typeof cvData === 'undefined') return;
+
         initBasicInfo();
         renderFooterContacts();
-        // renderHeroSkills();
         renderDynamicSections();
         lucide.createIcons();
 
@@ -181,9 +210,11 @@
         window.addEventListener('resize', () => {
             setTimeout(initCarouselState, 100);
         });
-    });
+    }
+    
+    document.addEventListener('DOMContentLoaded', initPortfolio);
+    document.addEventListener('CVDataLoaded', initPortfolio);
 
-    // 1. Điền thông tin cơ bản & Header
     function initBasicInfo() {
         document.getElementById('nav-name').textContent = cvData.fullName;
         document.getElementById('nav-title').textContent = cvData.jobTitle;
@@ -197,9 +228,22 @@
         document.getElementById('hero-title').textContent = pfInfo.title;
         document.getElementById('hero-subtitle').textContent = pfInfo.subTitle;
         document.getElementById('footer-copy').textContent = pfInfo.footerText;
+        
+        if(cvData.system) {
+            const txtMyCv = document.getElementById('txt-my-cv');
+            if(txtMyCv) txtMyCv.textContent = cvData.system.myCv;
+            
+            const txtDesc = document.getElementById('txt-modal-desc-heading');
+            if(txtDesc) txtDesc.textContent = cvData.system.description;
+
+            const txtTechDetails = document.getElementById('txt-modal-tech-details-heading');
+            if(txtTechDetails) txtTechDetails.textContent = cvData.system.technicalDetails;
+
+            const txtTech = document.getElementById('txt-modal-tech-heading');
+            if(txtTech) txtTech.textContent = cvData.system.technologies;
+        }
     }
 
-    // 2. Render Footer Icons
     function renderFooterContacts() {
         const container = document.getElementById('footer-socials');
         const c = cvData.contact;
@@ -234,7 +278,6 @@
         });
     }
 
-    // 3. Render Tags kỹ năng trên Header
     function renderHeroSkills() {
         const heroSkills = document.getElementById('hero-skills');
         cvData.skills.flatMap(s => s.items).forEach(item => {
@@ -242,45 +285,38 @@
         });
     }
 
-    // 4. Hàm chính: Tự động tạo Section theo Công ty & Cá nhân
     function renderDynamicSections() {
         const mainContainer = document.getElementById('main-content');
 
-        // B. Render Dự án cá nhân
         if (cvData.personalProjects && cvData.personalProjects.projects.length > 0) {
             const title = cvData.portfolioInfo?.personalSectionTitle || "Personal Projects";
-            // Lấy màu từ data, nếu không có thì dùng mặc định Sky Blue
             const color = cvData.personalProjects.theme || "#0369a1"; 
             
             const sectionHtml = generateSectionHtml(
                 title,
                 'code-2',
                 cvData.personalProjects.projects,
-                color // Truyền mã màu
+                color 
             );
             mainContainer.insertAdjacentHTML('beforeend', sectionHtml);
         }
 
-        // A. Render từng công ty trong Work Experience
         cvData.workExperience.forEach(work => {
             if (work.details && work.details.length > 0) {
-                // Lấy màu từ data, nếu không có thì dùng mặc định Slate (cho giống cũ) hoặc Sky
                 const color = work.theme || "#0369a1"; 
 
                 const sectionHtml = generateSectionHtml(
                     work.company,
                     'briefcase',
                     work.details,
-                    color // Truyền mã màu
+                    color 
                 );
                 mainContainer.insertAdjacentHTML('beforeend', sectionHtml);
             }
         });
     }
 
-// Helper: Hàm sinh HTML cho một Section
     function generateSectionHtml(title, iconName, projects, themeColor) {
-        // Tạo ID an toàn
         const sectionId = title.replace(/\s+/g, '');
 
         const cardsHtml = projects.map(proj => `
@@ -329,20 +365,14 @@
     `;
     }
 
-    // Helper: Hàm sinh HTML cho từng Card dự án
     function renderCard(proj, subtitle, themeColor) {
-        // Fallback màu nếu bị thiếu
         const color = themeColor || '#0369a1';
         
-        // Tạo các biến màu từ mã hex chính
-        // Thêm '1a' vào cuối hex 6 ký tự để tạo độ trong suốt ~10% (cho background)
-        // Thêm '33' để tạo độ trong suốt ~20% (cho border nhạt)
         const bgStyle = `background-color: ${color}1a; color: ${color}; border-color: ${color}33;`;
         const textStyle = `color: ${color};`;
         const borderTopStyle = `background-color: ${color};`;
 
         const tags = proj.tags?.map(t =>
-            // Áp dụng style màu động cho Tags (thay vì bg-sky-50...)
             `<span style="${bgStyle}" class="text-[10px] font-bold px-1.5 py-0.5 rounded border uppercase tracking-tighter">${t}</span>`
         ).join('') || '';
 
@@ -350,7 +380,6 @@
             `<li class="mb-1 text-[13px] leading-snug">${p}</li>`
         ).join('') || '';
 
-        // Logic Icon/Ảnh
         const iconValue = proj.icon || (subtitle === "Personal Project" ? 'code' : 'gamepad-2');
         const isImagePath = iconValue.includes('/') || iconValue.includes('.');
         const iconSize = '64px'; 
@@ -365,7 +394,6 @@
                      class="object-cover border border-slate-100 shadow-sm bg-white shrink-0">
             `;
         } else {
-            // Áp dụng màu động cho Icon Lucide (thay vì bg-slate-50...)
             iconHtml = `
                 <div style="width: ${iconSize}; height: ${iconSize}; ${bgStyle} border-radius: 12px;"
                      class="flex items-center justify-center transition-colors shrink-0">
@@ -374,7 +402,6 @@
             `;
         }
 
-        // Script nhỏ inline để xử lý hover cho Title (vì inline style không hỗ trợ :hover)
         const hoverTitleScript = `onmouseover="this.style.color='${color}'" onmouseout="this.style.color=''"`;
 
         return `
@@ -419,7 +446,6 @@
             </div>`;
     }
 
-    // 1. Xử lý sự kiện click
     function handleScroll(id, direction) {
         const container = document.getElementById(`container-${id}`);
         if (container) {
@@ -428,8 +454,6 @@
         }
     }
 
-    // 2. Logic Ẩn/Hiện (Chạy mỗi khi cuộn)
-    // (Code này giữ nguyên từ bước trước, dán lại để đảm bảo đồng bộ)
     function updateButtonVisibility(id) {
         const container = document.getElementById(`container-${id}`);
         const btnLeft = document.getElementById(`btn-left-${id}`);
@@ -437,18 +461,16 @@
 
         if (!container || !btnLeft || !btnRight) return;
 
-        // Nút Trái
         if (container.scrollLeft <= 10) {
             btnLeft.style.opacity = '0.5';
             btnLeft.style.pointerEvents = 'none';
-            btnLeft.style.transform = 'translateY(-50%) scale(0.8)'; // Hiệu ứng thu nhỏ khi ẩn
+            btnLeft.style.transform = 'translateY(-50%) scale(0.8)'; 
         } else {
             btnLeft.style.opacity = '1';
             btnLeft.style.pointerEvents = 'auto';
-            btnLeft.style.transform = 'translateY(-50%) scale(1)'; // Trở lại bình thường
+            btnLeft.style.transform = 'translateY(-50%) scale(1)'; 
         }
 
-        // Nút Phải
         const scrollRight = Math.ceil(container.scrollLeft + container.clientWidth);
         const scrollWidth = Math.ceil(container.scrollWidth);
 
@@ -463,50 +485,37 @@
         }
     }
 
-    // 3. Khởi tạo (Chạy 1 lần khi load trang)
     function initCarouselState() {
         const containers = document.querySelectorAll('[id^="container-"]');
 
         containers.forEach(container => {
             const id = container.id.replace('container-', '');
 
-            // --- FIX QUAN TRỌNG: ÉP VỀ VỊ TRÍ 0 ---
-            // Sửa lỗi trình duyệt tự nhớ vị trí cũ hoặc snap sai
             container.scrollLeft = 0;
-            // -------------------------------------
 
-            // Kiểm tra xem nội dung có đủ dài để cuộn không
             if (container.scrollWidth <= container.clientWidth + 5) {
-                // Nếu ngắn quá -> Ẩn luôn nút phải
                 const btnRight = document.getElementById(`btn-right-${id}`);
                 if (btnRight) {
                     btnRight.style.opacity = '0';
                     btnRight.style.pointerEvents = 'none';
                 }
             } else {
-                // Nếu đủ dài -> Cập nhật trạng thái (lúc này nút trái sẽ ẩn vì scrollLeft = 0)
                 updateButtonVisibility(id);
             }
         });
     }
 
-    // --- LOGIC MODAL & MEDIA ---
-
-    // Hàm helper để tìm dự án trong data
     function findProjectData(projectName) {
-        // Tìm trong Work Experience
         for (const work of cvData.workExperience) {
             const found = work.details?.find(p => p.name === projectName);
             if (found) return found;
         }
-        // Tìm trong Personal Projects
         if (cvData.personalProjects?.projects) {
             return cvData.personalProjects.projects.find(p => p.name === projectName);
         }
         return null;
     }
 
-    // Hàm chuyển đổi link Youtube thường thành link Embed
     function getYoutubeEmbedUrl(url) {
         if (!url) return '';
         const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
@@ -515,10 +524,8 @@
     }
 
     function openProjectModal(projectName) {
-        // ... (Giữ nguyên phần logic tìm data và điền text/media ở đây) ...
         const project = findProjectData(projectName);
         if (!project) return;
-        // Fill Text Data...
         document.getElementById('modal-title').textContent = project.name;
         document.getElementById('modal-genre').textContent = project.genre || 'Project';
         document.getElementById('modal-desc').textContent = project.description || '';
@@ -545,17 +552,13 @@
         }
         linksContainer.innerHTML = linksHtml;
 
-        // Fill Media Data...
         const mediaList = [];
         if (project.videos) project.videos.forEach(v => mediaList.push({ type: 'video', src: v }));
         if (project.images) project.images.forEach(img => mediaList.push({ type: 'image', src: img }));
         renderMediaPlayer(mediaList, project);
-        // ... (Kết thúc phần logic data) ...
 
 
-        // --- ANIMATION MỞ (Updated Target) ---
         const modal = document.getElementById('project-modal');
-        // Target mới: Wrapper chứa cả nút và content box
         const animationWrapper = document.getElementById('modal-animation-wrapper');
 
         modal.classList.remove('hidden');
@@ -564,7 +567,6 @@
 
         setTimeout(() => {
             modal.classList.remove('opacity-0', 'pointer-events-none');
-            // Áp dụng animation lên wrapper
             animationWrapper.classList.remove('scale-95', 'opacity-0');
             animationWrapper.classList.add('scale-100', 'opacity-100');
         }, 10);
@@ -577,22 +579,17 @@
         const mainContainer = document.getElementById('modal-main-media');
         const thumbContainer = document.getElementById('modal-thumbnails');
         
-        // Reset nội dung
         mainContainer.innerHTML = '';
         thumbContainer.innerHTML = '';
 
-        // 1. Nếu không có media: Ẩn section
         if (mediaList.length === 0) {
             mediaSection.classList.add('hidden');
             return; 
         }
         mediaSection.classList.remove('hidden');
 
-        // --- CẤU HÌNH CLASS CONTAINER ---
-        // Giữ nguyên các class quan trọng để layout Flex hoạt động với nút bấm
         thumbContainer.className = "flex-1 flex gap-3 overflow-x-auto custom-scrollbar scroll-smooth justify-start p-2"; 
         
-        // 2. Hàm hiển thị Media chính
         const setMainMedia = (index) => {
             const item = mediaList[index];
             mainContainer.innerHTML = ''; 
@@ -611,12 +608,10 @@
                 mainContainer.innerHTML = `<img src="${item.src}" class="h-full w-full object-contain" alt="Project Media">`;
             }
 
-            // Highlight Active Thumbnail
             Array.from(thumbContainer.children).forEach((child, i) => {
                 if (i === index) {
                     child.classList.remove('opacity-50', 'ring-transparent');
                     child.classList.add('opacity-100', 'ring-2', 'ring-sky-500');
-                    // Tự động cuộn thumbnail được chọn vào tầm nhìn
                     child.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 } else {
                     child.classList.remove('opacity-100', 'ring-2', 'ring-sky-500');
@@ -625,11 +620,9 @@
             });
         };
 
-        // 3. Render Thumbnails
         mediaList.forEach((media, index) => {
             const thumbBtn = document.createElement('button');
             
-            // flex-shrink-0: Không cho phép co lại
             thumbBtn.className = "flex-shrink-0 w-24 h-16 bg-slate-100 rounded-lg overflow-hidden transition-all duration-200 border border-slate-200 opacity-50 hover:opacity-100";
             
             if (media.type === 'video') {
@@ -645,14 +638,12 @@
             thumbContainer.appendChild(thumbBtn);
         });
 
-        // Chọn cái đầu tiên
         setMainMedia(0);
     }
 
     function scrollThumbnails(direction) {
         const container = document.getElementById('modal-thumbnails');
         if (container) {
-            // Cuộn 200px mỗi lần bấm
             const scrollAmount = 200; 
             container.scrollBy({
                 left: direction * scrollAmount,
@@ -663,12 +654,9 @@
 
     function closeModal() {
         const modal = document.getElementById('project-modal');
-        // Target mới: Wrapper
         const animationWrapper = document.getElementById('modal-animation-wrapper');
 
-        // --- ANIMATION ĐÓNG (Updated Target) ---
         modal.classList.add('opacity-0', 'pointer-events-none');
-        // Áp dụng animation đóng lên wrapper
         animationWrapper.classList.remove('scale-100', 'opacity-100');
         animationWrapper.classList.add('scale-95', 'opacity-0');
 
@@ -680,5 +668,6 @@
         }, 300);
     }
 </script>
+
 </body>
 </html>
