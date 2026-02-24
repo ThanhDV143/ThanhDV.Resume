@@ -1,4 +1,4 @@
-const cvData = {
+window.cvData = {
     system: {
         savePdf: "Lưu PDF",
         portfolio: "Portfolio",

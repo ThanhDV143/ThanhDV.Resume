@@ -169,7 +169,7 @@
     }
     
     const script = document.createElement('script');
-    script.src = currentLang === 'en' ? 'data.en.js' : 'data.js';
+    script.src = (currentLang === 'en' ? 'data.en.js' : 'data.js') + '?v=' + new Date().getTime();
     document.head.appendChild(script);
     
     script.onload = () => {
@@ -181,7 +181,8 @@
 </script>
 <script>
     function initPortfolio() {
-        if (typeof cvData === 'undefined') return;
+        if (typeof window.cvData === 'undefined') return; 
+        const cvData = window.cvData; 
 
         initBasicInfo();
         renderFooterContacts();
