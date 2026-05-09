@@ -32,8 +32,8 @@ window.cvData = {
         address: "Trung Văn, Nam Từ Liêm, Hà Nội",
         website: "https://knowledge.thanhdv.com",
         websiteDisplay: "knowledge.thanhdv.com",
-        github: "https://github.com/ThanhDang143",
-        githubDisplay: "github.com/ThanhDang143"
+        github: "https://github.com/ThanhDV143",
+        githubDisplay: "github.com/ThanhDV143"
     },
     education: {
         school: "Đại học Mỏ - Địa chất Hà Nội",
@@ -58,7 +58,7 @@ window.cvData = {
                     tags: ["Unity", "C#", "Solo", "Pragmatic Architecture"],
                     link: "https://www.taptap.io/app/33874766",
                     linkText: "TapTap",
-                    backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/TrainLoop_TD.apk",
+                    backupLink: "https://github.com/ThanhDV143/ThanhDV.GameDemos/releases/download/Upload_001/TrainLoop_TD.apk",
                     backupLinkText: "APK", 
                     points: [
                         "Chủ động loại bỏ các pattern phức tạp (như DI Framework) để tránh over-engineering.",
@@ -80,7 +80,7 @@ window.cvData = {
                     tags: ["Unity", "C#", "Teamwork", "Dependency Injection", "Strategy", "Factory"],
                     link: "https://www.taptap.io/app/33910058",
                     linkText: "TapTap",
-                    backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/SuperHeroDefense.apk",
+                    backupLink: "https://github.com/ThanhDV143/ThanhDV.GameDemos/releases/download/Upload_001/SuperHeroDefense.apk",
                     backupLinkText: "APK",
                     points: [
                         "Xây dựng core gameplay đảm bảo tính mở rộng để có thể dễ dàng teamwork trong quá trình làm việc.",
@@ -101,7 +101,7 @@ window.cvData = {
                     genre: "Party / Action",
                     description: "Hoàn thiện prototype trong 48h (OHZE Jam), tích hợp diện khuôn mặt.",
                     tags: ["Unity", "C#", "MediaPipe", "JAM"],
-                    backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/SmashYourFace.rar",
+                    backupLink: "https://github.com/ThanhDV143/ThanhDV.GameDemos/releases/download/Upload_001/SmashYourFace.rar",
                     backupLinkText: "Download",
                     points: [
                         "Tích hợp MediaPipe Plugin vào game để nhận diện khuôn mặt.",
@@ -123,7 +123,7 @@ window.cvData = {
                     tags: ["Unity", "C#", "CrazyHubs", "Rapid Prototyping"],
                     link: "https://www.taptap.io/app/33891864",
                     linkText: "TapTap",
-                    backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/BlockCrusher.apk",
+                    backupLink: "https://github.com/ThanhDV143/ThanhDV.GameDemos/releases/download/Upload_001/BlockCrusher.apk",
                     backupLinkText: "APK",
                     points: [
                         "Phát triển game từ giai đoạn ý tưởng đến sản phẩm hoàn chỉnh trong vòng 3 tuần theo quy trình CrazyHubs.",
@@ -146,7 +146,7 @@ window.cvData = {
                     tags: ["Unity", "C#", "CrazyHubs", "Rapid Prototyping"],
                     link: "https://www.taptap.io/app/33914917",
                     linkText: "TapTap",
-                    backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/ArrowBreakOut.apk",
+                    backupLink: "https://github.com/ThanhDV143/ThanhDV.GameDemos/releases/download/Upload_001/ArrowBreakOut.apk",
                     backupLinkText: "APK",
                     points: [
                         "Phát triển game từ giai đoạn ý tưởng đến sản phẩm hoàn chỉnh trong vòng 3 tuần theo quy trình CrazyHubs.",
@@ -180,7 +180,7 @@ window.cvData = {
                     tags: ["Unity", "C#", "ECS (Entitas)", "Optimization"],
                     link: "https://www.taptap.io/app/320447",
                     linkText: "TapTap",
-                    backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/CandyBattle.apk",
+                    backupLink: "https://github.com/ThanhDV143/ThanhDV.GameDemos/releases/download/Upload_001/CandyBattle.apk",
                     backupLinkText: "APK",
                     points: [
                         "Phát triển hệ thống combat bao gồm: Vũ khí, Skill, AI Enemy, Inventory...",
@@ -204,7 +204,7 @@ window.cvData = {
                     tags: ["Unity", "C#", "iOS", "API Integration"],
                     link: "https://www.taptap.io/app/33656534",
                     linkText: "TapTap",
-                    backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/CatRestaurantTycoon.apk",
+                    backupLink: "https://github.com/ThanhDV143/ThanhDV.GameDemos/releases/download/Upload_001/CatRestaurantTycoon.apk",
                     backupLinkText: "APK",
                     points: [
                         "Phát triển tính năng Inventory, Daily Check-in.",
@@ -242,7 +242,7 @@ window.cvData = {
                     tags: ["Unity", "C#"],
                     link: "https://apkpure.com/vn/metamon/com.metamon.pkm.zoo.monster",
                     linkText: "APKPure",
-                    backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/Metamon.apk",
+                    backupLink: "https://github.com/ThanhDV143/ThanhDV.GameDemos/releases/download/Upload_001/Metamon.apk",
                     backupLinkText: "APK",
                     points: [],
                     videos: [],
@@ -262,7 +262,7 @@ window.cvData = {
                     tags: ["Unity", "C#"],
                     link: "https://apkpure.com/vn/fall-party/com.fall.party.guys.fallguyparty.gameparty",
                     linkText: "APKPure",
-                    backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/FallParty.apk",
+                    backupLink: "https://github.com/ThanhDV143/ThanhDV.GameDemos/releases/download/Upload_001/FallParty.apk",
                     backupLinkText: "APK",
                     points: ["Sử dụng MLAgent để huấn luyện AI cho bot trong game."],
                     videos: [],
@@ -285,7 +285,7 @@ window.cvData = {
                     tags: ["Unity", "C#"],
                     link: "https://apkpure.com/vn/hook-guys-party/com.hook.guys.party.wuggyparty.hypercasual",
                     linkText: "APKPure",
-                    backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/Hook.apk",
+                    backupLink: "https://github.com/ThanhDV143/ThanhDV.GameDemos/releases/download/Upload_001/Hook.apk",
                     backupLinkText: "APK",
                     points: ["Bước đầu tìm hiểu về tối ưu Lighting."],
                     videos: [],
@@ -305,7 +305,7 @@ window.cvData = {
                     tags: ["Unity", "C#"],
                     link: "https://apkpure.com/vn/beach-defence-bh/com.beachhead.beach.defence.defense",
                     linkText: "APKPure",
-                    backupLink: "https://github.com/ThanhDang143/ThanhDV.GameDemos/releases/download/Upload_001/BeachDefence.apk",
+                    backupLink: "https://github.com/ThanhDV143/ThanhDV.GameDemos/releases/download/Upload_001/BeachDefence.apk",
                     backupLinkText: "APK",
                     points: ["Tìm hiểu về game 3D và AI trong game."],
                     videos: [],
@@ -354,7 +354,7 @@ window.cvData = {
                 description: "Thư viện Wrapper cho FMOD trong Unity, giúp chuẩn hóa và tăng tốc quy trình tích hợp âm thanh.",
                 tags: ["Unity", "FMOD", "Tooling","Audio"],
                 icon: "music",
-                link: "https://github.com/ThanhDang143/ThanhDV.AudioManager.FMOD.git",
+                link: "https://github.com/ThanhDV143/ThanhDV.AudioManager.FMOD.git",
                 linkText: "GitHub",
                 points: [
                     "Cung cấp các API high-level dễ sử dụng, giảm thiểu code lặp lại khi tích hợp âm thanh.",
@@ -373,7 +373,7 @@ window.cvData = {
                 genre: "Tooling / Save System",
                 description: "Giải pháp quản lý dữ liệu local đơn giản, an toàn và trực quan dành cho Unity Developer.",
                 tags: ["Unity", "JSON", "AES Encryption", "Open Source"],
-                link: "https://github.com/ThanhDang143/ThanhDV.GameSaver.git",
+                link: "https://github.com/ThanhDV143/ThanhDV.GameSaver.git",
                 linkText: "GitHub",
                 points: [
                     "Hỗ trợ Serialization dữ liệu ra file JSON, tích hợp sẵn thuật toán mã hóa AES để bảo mật thông tin người chơi.",
